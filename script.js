@@ -216,9 +216,10 @@
     const show = i => {
       idx = (i + items.length) % items.length;
       const it = items[idx];
-      art.innerHTML = $('.gi-art', it).innerHTML;
-      art.style.setProperty('--g1', it.style.getPropertyValue('--g1'));
-      art.style.setProperty('--g2', it.style.getPropertyValue('--g2'));
+      const im = $('img', it);
+      art.innerHTML = '';
+      const big = new Image(); big.src = it.dataset.full || im.src; big.alt = im.alt; art.appendChild(big);
+      [idx + 1, idx - 1].forEach(n => { const o = items[(n + items.length) % items.length]; if (o && o.dataset.full) new Image().src = o.dataset.full; });
       ttl.textContent = $('b', it).textContent;
       sub.textContent = $('small', it).textContent;
     };
