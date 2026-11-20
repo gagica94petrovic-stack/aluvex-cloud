@@ -190,15 +190,7 @@
       if (Math.abs(tx - gx) > .5 || Math.abs(ty - gy) > .5) requestAnimationFrame(gl); else run = false;
     };
     addEventListener('pointermove', e => { tx = e.clientX; ty = e.clientY; if (!run) { run = true; requestAnimationFrame(gl); } }, { passive: true });
-
-    // magnetni dugmići
-    $$('.hero-cta .btn, .cta-band .btn, .center-cta .btn').forEach(b => {
-      b.addEventListener('pointermove', e => {
-        const r = b.getBoundingClientRect();
-        b.style.translate = `${(e.clientX - r.left - r.width / 2) * .18}px ${(e.clientY - r.top - r.height / 2) * .28}px`;
-      });
-      b.addEventListener('pointerleave', () => { b.style.translate = ''; });
-    });
+    // (magnetni efekat na dugmadima uklonjen: sva dugmad koriste istu CSS hover animaciju kao „Pozovite nas“)
   }
 
   // spotlight na karticama
