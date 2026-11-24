@@ -125,7 +125,8 @@
   measure(); update();
 
   /* ---------- pauziraj animacije koje nisu na ekranu ---------- */
-  if (heroEl) new IntersectionObserver(es => es.forEach(e => heroEl.classList.toggle('off', !e.isIntersecting)), { threshold: 0 }).observe(heroEl);
+  const topEl = heroEl || $('.page-hero');   // hero na početnoj, page-hero na drugoj stranici
+  if (topEl) new IntersectionObserver(es => es.forEach(e => topEl.classList.toggle('off', !e.isIntersecting)), { threshold: 0 }).observe(topEl);
   $$('svg').forEach(svg => {
     if (!svg.querySelector('animateTransform') || !svg.pauseAnimations) return;
     new IntersectionObserver(es => es.forEach(e => e.isIntersecting ? svg.unpauseAnimations() : svg.pauseAnimations()), { threshold: 0 }).observe(svg);
@@ -165,40 +166,25 @@
   }), { threshold: .12, rootMargin: '0px 0px -40px 0px' });
   $$('.reveal').forEach(el => io.observe(el));
 
-  /* ---------- brojači ---------- */
-  const countIO = new IntersectionObserver(es => es.forEach(e => {
-    if (!e.isIntersecting) return;
-    countIO.unobserve(e.target);
-    const el = e.target, end = +el.dataset.count, suf = el.dataset.suffix || '', t0 = performance.now(), dur = 1800;
-    const tick = t => {
-      const p = Math.min((t - t0) / dur, 1), v = 1 - Math.pow(1 - p, 3);
-      el.textContent = Math.round(end * v).toLocaleString('sr-RS') + suf;
-      if (p < 1) requestAnimationFrame(tick);
-    };
-    requestAnimationFrame(tick);
-  }), { threshold: .6 });
-  $$('[data-count]').forEach(el => countIO.observe(el));
-
-
-  /* ---------- efekti miša ---------- */
-  if (!touch) {
-    // glow koji prati kursor (transform, petlja radi samo dok se miš kreće)
-    const glow = $('#cursorGlow'); let gx = innerWidth / 2, gy = 300, tx = gx, ty = gy, run = false;
-    const gl = () => {
-      gx += (tx - gx) * .12; gy += (ty - gy) * .12;
-      glow.style.transform = `translate3d(${gx - 260}px,${gy - 260}px,0)`;
-      if (Math.abs(tx - gx) > .5 || Math.abs(ty - gy) > .5) requestAnimationFrame(gl); else run = false;
-    };
-    addEventListener('pointermove', e => { tx = e.clientX; ty = e.clientY; if (!run) { run = true; requestAnimationFrame(gl); } }, { passive: true });
-    // (magnetni efekat na dugmadima uklonjen: sva dugmad koriste istu CSS hover animaciju kao „Pozovite nas“)
+  /* ---------- brojači (jedna petlja za sve brojeve) ---------- */
+  const counterBox = $('.counters');
+  if (counterBox) {
+    const nums = $$('[data-count]', counterBox).map(el => ({ el, end: +el.dataset.count, suf: el.dataset.suffix || '' }));
+    const countIO = new IntersectionObserver(es => {
+      if (!es[0].isIntersecting) return;
+      countIO.disconnect();
+      const t0 = performance.now(), dur = 1800;
+      const tick = t => {
+        const p = Math.min((t - t0) / dur, 1), v = 1 - Math.pow(1 - p, 3);
+        nums.forEach(n => { n.el.textContent = Math.round(n.end * v).toLocaleString('sr-RS') + n.suf; });
+        if (p < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    }, { threshold: .4 });
+    countIO.observe(counterBox);
   }
 
-  // spotlight na karticama
-  $$('.card').forEach(c => c.addEventListener('pointermove', e => {
-    const r = c.getBoundingClientRect();
-    c.style.setProperty('--mx', (e.clientX - r.left) + 'px');
-    c.style.setProperty('--my', (e.clientY - r.top) + 'px');
-  }));
+  // (efekti koji prate kursor — glow i spotlight — uklonjeni: bez ikakvih mouse efekata)
 
   /* ---------- galerija + lightbox ---------- */
   const items = $$('.g-item');
@@ -319,15 +305,11 @@
   const chips = $$('.chip');
   if (chips.length) {
     const cards = $$('.p-card');
+    const grid = $('#productGrid');
     const apply = f => {
       chips.forEach(c => c.classList.toggle('active', c.dataset.filter === f));
-      let n = 0;
-      cards.forEach(c => {
-        const on = f === 'svi' || c.dataset.cat === f;
-        c.classList.toggle('hide', !on);
-        c.classList.remove('pop');
-        if (on) { void c.offsetWidth; c.style.animationDelay = (n++ * 70) + 'ms'; c.classList.add('pop'); }
-      });
+      cards.forEach(c => c.classList.toggle('hide', !(f === 'svi' || c.dataset.cat === f)));
+      grid.classList.remove('pop'); void grid.offsetWidth; grid.classList.add('pop');   // jedna animacija za celu mrežu
     };
     chips.forEach(c => c.addEventListener('click', () => apply(c.dataset.filter)));
     const h = location.hash.slice(1);

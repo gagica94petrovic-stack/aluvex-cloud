@@ -20,7 +20,6 @@
   </div>
 </div>
 <div class="progress" id="progress"></div>
-<div class="cursor-glow" id="cursorGlow"></div>
 
 <!-- ===== NAVBAR ===== -->
 <header class="nav" id="nav">
@@ -47,17 +46,17 @@
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
   <div class="blob b1"></div><div class="blob b2"></div>
-  <div class="container">
-    <div class="crumbs fade-in" style="--d:-.5"><a href="index.html">Početna</a> <span>/</span> <span>Proizvodi</span></div>
-    <h1 class="fade-in" style="--d:-.4">Proizvodi i sistemi <span class="grad">po meri</span></h1>
-    <p class="fade-in" style="--d:-.3">Od jednog prozora do kompletne staklene fasade — svaki proizvod izrađujemo precizno, od premium aluminijumskih profila.</p>
+  <div class="container fade-in" style="--d:-.5">
+    <div class="crumbs"><a href="index.html">Početna</a> <span>/</span> <span>Proizvodi</span></div>
+    <h1>Proizvodi i sistemi <span class="grad">po meri</span></h1>
+    <p>Od jednog prozora do kompletne staklene fasade — svaki proizvod izrađujemo precizno, od premium aluminijumskih profila.</p>
   </div>
 </section>
 
 <!-- ===== INTERAKTIVNI DEMO ===== -->
 <section style="padding-top:40px">
-  <div class="container demo-wrap">
-    <div class="reveal left">
+  <div class="container demo-wrap reveal">
+    <div>
       <div class="demo-frame">
         <div class="demo-view">
           <div class="sdoor" id="demoDoor">
@@ -67,7 +66,7 @@
         </div>
       </div>
     </div>
-    <div class="demo-text reveal right">
+    <div class="demo-text">
       <span class="tag">Probajte sami</span>
       <h2>Klizni sistemi koji <span class="grad">otvaraju prostor</span></h2>
       <p>Povucite klizač i otvorite vrata. Naši klizni sistemi rade tiho, glatko i pouzdano — i do 6 metara širine po jednom otvoru.</p>
@@ -81,12 +80,12 @@
 
 <!-- ===== KATALOG ===== -->
 <section id="katalog" style="padding-top:60px">
-  <div class="container">
-    <div class="sec-head center reveal">
+  <div class="container reveal">
+    <div class="sec-head center">
       <span class="tag">Katalog</span>
       <h2>Izaberite <span class="grad">svoj sistem</span></h2>
     </div>
-    <div class="filters reveal" id="filters">
+    <div class="filters" id="filters">
       <button class="chip active" data-filter="svi">Svi</button>
       <button class="chip" data-filter="prozori">Prozori</button>
       <button class="chip" data-filter="vrata">Vrata</button>
@@ -96,49 +95,49 @@
     </div>
 
     <div class="grid-3" id="productGrid">
-      <article class="card p-card tilt" data-cat="prozori">
+      <article class="card p-card" data-cat="prozori">
         <div class="art" data-art="window"></div>
         <div class="card-body"><h3>Prozori sa termo prekidom</h3><p>Odlična toplotna i zvučna izolacija za energetski efikasne objekte.</p>
           <ul class="specs"><li>Jedno-, dvo- i trokomorni profili</li><li>Otvaranje: krilno, kipno, kip-krilno</li><li>Veliki izbor RAL boja</li></ul>
           <div class="card-actions"><a href="index.html#kontakt" class="btn primary sm">Pozovite nas</a></div></div>
       </article>
-      <article class="card p-card tilt" data-cat="vrata">
+      <article class="card p-card" data-cat="vrata">
         <div class="art" data-art="door"></div>
         <div class="card-body"><h3>Ulazna i balkonska vrata</h3><p>Elegantan izgled uz vrhunsku sigurnost i dugotrajnost.</p>
           <ul class="specs"><li>Višetačkasto zaključavanje</li><li>Staklo ili puna ispuna</li><li>Niski prag bez barijera</li></ul>
           <div class="card-actions"><a href="index.html#kontakt" class="btn primary sm">Pozovite nas</a></div></div>
       </article>
-      <article class="card p-card tilt" data-cat="klizni">
+      <article class="card p-card" data-cat="klizni">
         <div class="art" data-art="slide"></div>
         <div class="card-body"><h3>Klizna vrata</h3><p>Idealna za terase i dvorišta — maksimalno svetla, minimalno profila.</p>
           <ul class="specs"><li>Dvo-, tro- i višekrilni sistemi</li><li>Tiho klizanje na kvalitetnim točkićima</li><li>Uski profili, velike staklene površine</li></ul>
           <div class="card-actions"><a href="index.html#kontakt" class="btn primary sm">Pozovite nas</a></div></div>
       </article>
-      <article class="card p-card tilt" data-cat="klizni">
+      <article class="card p-card" data-cat="klizni">
         <div class="art" data-art="lift"></div>
         <div class="card-body"><h3>Podizno-klizni sistemi</h3><p>Premium rešenje za velike otvore, sa izuzetnom zaptivenošću.</p>
           <ul class="specs"><li>Krila i do nekoliko stotina kilograma</li><li>Podizanje krila pre klizanja</li><li>Odlična zaptivenost kad su zatvorena</li></ul>
           <div class="card-actions"><a href="index.html#kontakt" class="btn primary sm">Pozovite nas</a></div></div>
       </article>
-      <article class="card p-card tilt" data-cat="fasade">
+      <article class="card p-card" data-cat="fasade">
         <div class="art" data-art="facade"></div>
         <div class="card-body"><h3>Aluminijumske fasade</h3><p>Moderne staklene fasade za poslovne i stambene objekte.</p>
           <ul class="specs"><li>Stub-rigla i element fasade</li><li>Sigurnosno i termoizolaciono staklo</li><li>Projektovanje i statika uključeni</li></ul>
           <div class="card-actions"><a href="index.html#kontakt" class="btn primary sm">Pozovite nas</a></div></div>
       </article>
-      <article class="card p-card tilt" data-cat="fasade">
+      <article class="card p-card" data-cat="fasade">
         <div class="art" data-art="winter"></div>
         <div class="card-body"><h3>Zimske bašte</h3><p>Proširite životni prostor tokom cele godine.</p>
           <ul class="specs"><li>Izrada po meri i projektu</li><li>Staklena krovna konstrukcija</li><li>Integrisani klizni zidovi</li></ul>
           <div class="card-actions"><a href="index.html#kontakt" class="btn primary sm">Pozovite nas</a></div></div>
       </article>
-      <article class="card p-card tilt" data-cat="fasade">
+      <article class="card p-card" data-cat="fasade">
         <div class="art" data-art="railing"></div>
         <div class="card-body"><h3>Staklene ograde</h3><p>Bezbedne i moderne ograde za terase, balkone i stepeništa.</p>
           <ul class="specs"><li>Kaljeno i lepljeno staklo</li><li>Aluminijumski ili nerđajući nosači</li><li>Za unutrašnju i spoljnu upotrebu</li></ul>
           <div class="card-actions"><a href="index.html#kontakt" class="btn primary sm">Pozovite nas</a></div></div>
       </article>
-      <article class="card p-card tilt" data-cat="dodatno">
+      <article class="card p-card" data-cat="dodatno">
         <div class="art" data-art="shutter"></div>
         <div class="card-body"><h3>Roletne i komarnici</h3><p>Zaštita od sunca, buke i insekata — savršena dopuna stolariji.</p>
           <ul class="specs"><li>Aluminijumske roletne</li><li>Ručno ili motorno upravljanje</li><li>Komarnici svih tipova</li></ul>
@@ -150,34 +149,34 @@
 
 <!-- ===== PREDNOSTI ===== -->
 <section class="features">
-  <div class="container">
-    <div class="sec-head center reveal">
+  <div class="container reveal">
+    <div class="sec-head center">
       <span class="tag">Zašto AluVex</span>
       <h2>Kvalitet koji se <span class="grad">vidi i oseća</span></h2>
     </div>
     <div class="grid-3">
-      <div class="card feat tilt reveal" style="--d:0"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg></div><h3>Termo prekid</h3><p>Smanjuje gubitke toplote i račune za grejanje, uz stalnu ugodnost u prostoru.</p></div>
-      <div class="card feat tilt reveal" style="--d:1"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l10 5-10 5L2 7z"/><path d="M2 12l10 5 10-5"/><path d="M2 17l10 5 10-5"/></svg></div><h3>Vrhunsko staklo</h3><p>Dvoslojna i troslojna stakla, sigurnosna i niskoemisiona, prema vašim potrebama.</p></div>
-      <div class="card feat tilt reveal" style="--d:2"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="8" cy="10" r="1"/><circle cx="12" cy="7" r="1"/><circle cx="16" cy="10" r="1"/><path d="M12 21c-1.5 0-2-1-1.5-2.2.5-1.2 1.5-1.8 1.5-3.3"/></svg></div><h3>Sve RAL boje</h3><p>Plastifikacija i eloksaža u svim bojama, uključujući imitacije drveta.</p></div>
-      <div class="card feat tilt reveal" style="--d:0"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5z"/></svg></div><h3>Sigurnost</h3><p>Višetačkasto okovanje i ojačani profili za dodatni mir u vašem domu.</p></div>
-      <div class="card feat tilt reveal" style="--d:1"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h11a3 3 0 1 0-3-3"/><path d="M3 12h16a3 3 0 1 1-3 3"/><path d="M3 16h8"/></svg></div><h3>Zvučna izolacija</h3><p>Smanjite buku sa ulice i uživajte u tišini svog prostora.</p></div>
-      <div class="card feat tilt reveal" style="--d:2"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="M8.5 14L7 22l5-3 5 3-1.5-8"/></svg></div><h3>Garancija i servis</h3><p>Dugogodišnja garancija i brz servis i nakon ugradnje.</p></div>
+      <div class="card feat"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg></div><h3>Termo prekid</h3><p>Smanjuje gubitke toplote i račune za grejanje, uz stalnu ugodnost u prostoru.</p></div>
+      <div class="card feat"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l10 5-10 5L2 7z"/><path d="M2 12l10 5 10-5"/><path d="M2 17l10 5 10-5"/></svg></div><h3>Vrhunsko staklo</h3><p>Dvoslojna i troslojna stakla, sigurnosna i niskoemisiona, prema vašim potrebama.</p></div>
+      <div class="card feat"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="8" cy="10" r="1"/><circle cx="12" cy="7" r="1"/><circle cx="16" cy="10" r="1"/><path d="M12 21c-1.5 0-2-1-1.5-2.2.5-1.2 1.5-1.8 1.5-3.3"/></svg></div><h3>Sve RAL boje</h3><p>Plastifikacija i eloksaža u svim bojama, uključujući imitacije drveta.</p></div>
+      <div class="card feat"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5z"/></svg></div><h3>Sigurnost</h3><p>Višetačkasto okovanje i ojačani profili za dodatni mir u vašem domu.</p></div>
+      <div class="card feat"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h11a3 3 0 1 0-3-3"/><path d="M3 12h16a3 3 0 1 1-3 3"/><path d="M3 16h8"/></svg></div><h3>Zvučna izolacija</h3><p>Smanjite buku sa ulice i uživajte u tišini svog prostora.</p></div>
+      <div class="card feat"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="M8.5 14L7 22l5-3 5 3-1.5-8"/></svg></div><h3>Garancija i servis</h3><p>Dugogodišnja garancija i brz servis i nakon ugradnje.</p></div>
     </div>
   </div>
 </section>
 
 <!-- ===== PROCES ===== -->
 <section>
-  <div class="container">
-    <div class="sec-head center reveal">
+  <div class="container reveal">
+    <div class="sec-head center">
       <span class="tag">Kako radimo</span>
       <h2>Od ideje do <span class="grad">ugradnje</span> u 4 koraka</h2>
     </div>
     <div class="steps">
-      <div class="step reveal" style="--d:0"><div class="n">1</div><h3>Merenje</h3><p>Besplatan izlazak na teren i precizno merenje.</p></div>
-      <div class="step reveal" style="--d:1"><div class="n">2</div><h3>Ponuda</h3><p>Detaljna ponuda i izbor profila, stakla i boje.</p></div>
-      <div class="step reveal" style="--d:2"><div class="n">3</div><h3>Izrada</h3><p>Precizna proizvodnja u našoj radionici.</p></div>
-      <div class="step reveal" style="--d:3"><div class="n">4</div><h3>Ugradnja</h3><p>Stručna montaža, čišćenje i primopredaja.</p></div>
+      <div class="step"><div class="n">1</div><h3>Merenje</h3><p>Besplatan izlazak na teren i precizno merenje.</p></div>
+      <div class="step"><div class="n">2</div><h3>Ponuda</h3><p>Detaljna ponuda i izbor profila, stakla i boje.</p></div>
+      <div class="step"><div class="n">3</div><h3>Izrada</h3><p>Precizna proizvodnja u našoj radionici.</p></div>
+      <div class="step"><div class="n">4</div><h3>Ugradnja</h3><p>Stručna montaža, čišćenje i primopredaja.</p></div>
     </div>
   </div>
 </section>

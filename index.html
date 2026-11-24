@@ -22,7 +22,6 @@
   </div>
 </div>
 <div class="progress" id="progress"></div>
-<div class="cursor-glow" id="cursorGlow"></div>
 
 <!-- ===== NAVBAR ===== -->
 <header class="nav" id="nav">
@@ -51,17 +50,11 @@
   <div class="blob b1"></div><div class="blob b2"></div>
 
   <div class="container hero-wrap">
-    <div class="hero-text">
-      <span class="eyebrow fade-in" style="--d:-.4"><i></i> Aluminijumska stolarija po meri</span>
-      <h1>
-        <span class="w"><span style="--i:0">Aluminijum</span></span>
-        <span class="w"><span style="--i:1">koji</span></span>
-        <span class="w"><span style="--i:2">oblikuje</span></span><br>
-        <span class="w"><span class="grad" style="--i:3">vaš</span></span>
-        <span class="w"><span class="grad" style="--i:4">prostor</span></span>
-      </h1>
-      <p class="lead fade-in" style="--d:.1">Izrađujemo i ugrađujemo prozore, vrata i klizne sisteme vrhunskog kvaliteta za kuće, stanove i poslovne objekte.</p>
-      <div class="hero-cta fade-in" style="--d:.25">
+    <div class="hero-text fade-in" style="--d:-.4">
+      <span class="eyebrow"><i></i> Aluminijumska stolarija po meri</span>
+      <h1>Aluminijum koji oblikuje<br>vaš prostor</h1>
+      <p class="lead">Izrađujemo i ugrađujemo prozore, vrata i klizne sisteme vrhunskog kvaliteta za kuće, stanove i poslovne objekte.</p>
+      <div class="hero-cta">
         <a href="#kontakt" class="btn primary">Dogovorite merenje
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a href="proizvodi.html" class="btn ghost">Pogledaj proizvode</a>
@@ -79,35 +72,31 @@
 
 <!-- ===== PROIZVODI (vodi na drugu stranicu) ===== -->
 <section id="proizvodi">
-  <div class="container">
-    <div class="sec-head center reveal">
+  <div class="container reveal">
+    <div class="sec-head center">
       <span class="tag">Naši proizvodi</span>
       <h2><span class="grad">Pronadjite idealan sistem za vas</span></h2>
       <p>Kliknite na ono što vam je potrebno i istražite našu kompletnu ponudu</p>
     </div>
     <div class="grid-4">
-      <a href="proizvodi.html#prozori" class="card tilt reveal" style="--d:0">
-        <div class="art" data-art="window"></div>
-        <div class="card-body"><h3>Prozori</h3><p>Aluminijumski prozori sa termo prekidom za maksimalnu uštedu energije.</p>
-          <span class="more">Saznaj više <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      <a href="proizvodi.html#prozori" class="card pcard">
+        <span class="pc-media"><img class="pc-bg" src="img/p-prozori.webp" width="720" height="900" alt="Antracit aluminijumski prozor sa otvorenim krilom" loading="lazy" decoding="async"></span>
+        <div class="card-body"><h3>Prozori</h3><span class="more" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
       </a>
-      <a href="proizvodi.html#vrata" class="card tilt reveal" style="--d:1">
-        <div class="art" data-art="door"></div>
-        <div class="card-body"><h3>Vrata</h3><p>Ulazna i balkonska vrata. Elegantna, sigurna i dugotrajna.</p>
-          <span class="more">Saznaj više <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      <a href="proizvodi.html#vrata" class="card pcard">
+        <span class="pc-media"><img class="pc-bg" src="img/p-vrata.webp" width="720" height="900" alt="Moderna antracit ulazna vrata sa bočnim staklom i dugom ručkom" loading="lazy" decoding="async"></span>
+        <div class="card-body"><h3>Vrata</h3><span class="more" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
       </a>
-      <a href="proizvodi.html#klizni" class="card tilt reveal" style="--d:2">
-        <div class="art" data-art="slide"></div>
-        <div class="card-body"><h3>Klizni sistemi</h3><p>Sve vrste kliznih sistema za velike staklene površine.</p>
-          <span class="more">Saznaj više <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      <a href="proizvodi.html#klizni" class="card pcard">
+        <span class="pc-media"><img class="pc-bg" src="img/p-klizni.webp" width="720" height="900" alt="Klizna balkonska vrata od stakla sa tamnim profilom" loading="lazy" decoding="async"></span>
+        <div class="card-body"><h3>Klizni sistemi</h3><span class="more" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
       </a>
-      <a href="proizvodi.html#fasade" class="card tilt reveal" style="--d:3">
-        <div class="art" data-art="facade"></div>
-        <div class="card-body"><h3>Alu Portali</h3><p>Idealno rešenje za moderne, prostrane i reprezentativne ulaze.</p>
-          <span class="more">Saznaj više <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      <a href="proizvodi.html#fasade" class="card pcard">
+        <span class="pc-media"><img class="pc-bg" src="img/p-portali.webp" width="720" height="900" alt="Moderna kuća sa velikim aluminijumskim portalima i staklenim površinama" loading="lazy" decoding="async"></span>
+        <div class="card-body"><h3>Alu Portali</h3><span class="more" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
       </a>
     </div>
-    <div class="center-cta reveal">
+    <div class="center-cta">
       <a href="proizvodi.html" class="btn primary">Pogledaj sve proizvode
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
@@ -116,44 +105,44 @@
 
 <!-- ===== GALERIJA ===== -->
 <section class="gallery" id="galerija">
-  <div class="container">
-    <div class="sec-head reveal">
+  <div class="container reveal">
+    <div class="sec-head">
       <span class="tag">Galerija</span>
       <h2>Naši <span class="grad">realizovani projekti</span></h2>
       <p>Pogledajte deo radova koje smo isporučili i ugradili. Kliknite na projekat za uvećani prikaz.</p>
     </div>
     <div class="g-grid">
       <div class="g-col">
-        <figure class="g-item reveal" style="--r:1.668;--d:0" data-full="img/g1-full.webp">
+        <figure class="g-item" style="--r:1.668" data-full="img/g1-full.webp">
           <img src="img/g1.webp" width="760" height="1268" alt="Ulazna vrata sa bočnim staklom – Ulaz stambene zgrade" loading="lazy" decoding="async">
           <figcaption class="g-cap"><b>Ulazna vrata sa bočnim staklom</b><small>Ulaz stambene zgrade</small></figcaption>
           <span class="g-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></span>
         </figure>
-        <figure class="g-item reveal" style="--r:0.618;--d:1" data-full="img/g3-full.webp">
+        <figure class="g-item" style="--r:0.618" data-full="img/g3-full.webp">
           <img src="img/g3.webp" width="760" height="470" alt="Klizni sistem sa tri krila – Porodična kuća" loading="lazy" decoding="async">
           <figcaption class="g-cap"><b>Klizni sistem sa tri krila</b><small>Porodična kuća</small></figcaption>
           <span class="g-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></span>
         </figure>
       </div>
       <div class="g-col">
-        <figure class="g-item reveal" style="--r:1.333;--d:0" data-full="img/g2-full.webp">
+        <figure class="g-item" style="--r:1.333" data-full="img/g2-full.webp">
           <img src="img/g2.webp" width="760" height="1013" alt="Klizna vrata od stakla – Antracit profil, prostor sa bazenom" loading="lazy" decoding="async">
           <figcaption class="g-cap"><b>Klizna vrata od stakla</b><small>Antracit profil, prostor sa bazenom</small></figcaption>
           <span class="g-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></span>
         </figure>
-        <figure class="g-item reveal" style="--r:1.024;--d:1" data-full="img/g6-full.webp">
+        <figure class="g-item" style="--r:1.024" data-full="img/g6-full.webp">
           <img src="img/g6.webp" width="760" height="778" alt="Zastakljen ugaoni balkon – Klizni prozori, plavo staklo" loading="lazy" decoding="async">
           <figcaption class="g-cap"><b>Zastakljen ugaoni balkon</b><small>Klizni prozori, zatamnjeno staklo</small></figcaption>
           <span class="g-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></span>
         </figure>
       </div>
       <div class="g-col">
-        <figure class="g-item reveal" style="--r:1.439;--d:0" data-full="img/g4-full.webp">
+        <figure class="g-item" style="--r:1.439" data-full="img/g4-full.webp">
           <img src="img/g4.webp" width="760" height="1094" alt="Ulazna vrata sa bočnim panelom – Bela, inox ručka" loading="lazy" decoding="async">
           <figcaption class="g-cap"><b>Ulazna vrata sa bočnim panelom</b><small>Bela, inox ručka</small></figcaption>
           <span class="g-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></span>
         </figure>
-        <figure class="g-item reveal" style="--r:0.75;--d:1" data-full="img/g5-full.webp">
+        <figure class="g-item" style="--r:0.75" data-full="img/g5-full.webp">
           <img src="img/g5.webp" width="760" height="570" alt="Bezramovska zastakljena terasa – Panoramski pogled" loading="lazy" decoding="async">
           <figcaption class="g-cap"><b>Vizyon klizno-preklopni sistem</b><small>Panoramski pogled</small></figcaption>
           <span class="g-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></span>
@@ -162,7 +151,7 @@
     </div>
 
     <!-- Društvene mreže (PRIVREMENI linkovi: zameniti pravim adresama profila) -->
-    <div class="g-social reveal">
+    <div class="g-social">
       <p class="g-social-text">Za više naših projekata posetite našu <b>Instagram</b> i <b>Facebook</b> stranicu</p>
       <div class="g-social-links">
         <a class="soc-btn" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="AluVex na Instagramu" title="Instagram">
@@ -178,8 +167,8 @@
 
 <!-- ===== O NAMA ===== -->
 <section id="o-nama">
-  <div class="container about-wrap">
-    <div class="about-text reveal left">
+  <div class="container about-wrap reveal">
+    <div class="about-text">
       <span class="tag">O nama</span>
       <div class="sec-head" style="margin-bottom:24px"><h2>Preciznost u svakom <span class="grad">milimetru</span></h2></div>
       <p>10+ godina iskustva u aluminijumskoj stolariji pretočili smo u firmu osnovanu 2025. Naš tim je posvećen kvalitetu i preciznosti od dolaska na merenje, preko montaže i demontaže, pa sve do završnog detalja.</p>
@@ -190,24 +179,24 @@
       </ul>
     </div>
     <div class="counters">
-      <div class="counter card reveal" style="--d:0"><b data-count="35">0</b><span>članova tima</span></div>
-      <div class="counter card reveal" style="--d:1"><b data-count="5000" data-suffix="+">0</b><span>m² ugrađenih fasada</span></div>
-      <div class="counter card reveal" style="--d:2"><b data-count="98" data-suffix="%">0</b><span>zadovoljnih klijenata</span></div>
-      <div class="counter card reveal" style="--d:3"><b data-count="48" data-suffix="h">0</b><span>rok za ponudu</span></div>
+      <div class="counter card"><b data-count="35">0</b><span>članova tima</span></div>
+      <div class="counter card"><b data-count="5000" data-suffix="+">0</b><span>m² ugrađenih fasada</span></div>
+      <div class="counter card"><b data-count="98" data-suffix="%">0</b><span>zadovoljnih klijenata</span></div>
+      <div class="counter card"><b data-count="48" data-suffix="h">0</b><span>rok za ponudu</span></div>
     </div>
   </div>
 </section>
 
 <!-- ===== KONTAKT ===== -->
 <section class="contact" id="kontakt">
-  <div class="container">
-    <div class="sec-head reveal">
+  <div class="container reveal">
+    <div class="sec-head">
       <span class="tag">Kontakt</span>
       <h2>Pozovite nas <span class="grad">dogovorimo merenje</span></h2>
       <p>Poslujemo direktno, kroz razgovor. Pozovite nas da dogovorimo izlazak na teren, merenje i sve detalje oko vaše stolarije.</p>
     </div>
     <div class="contact-wrap simple">
-      <div class="call-card card reveal left">
+      <div class="call-card card">
         <h3>Najbrže je da nas pozovete</h3>
         <a class="big-phone grad" href="tel:+381615520700">+381 61 552 0700</a>
         <ul class="call-list">
@@ -219,10 +208,10 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
       </div>
       <div class="info-list">
-        <div class="info card reveal right" style="--d:0"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg></span><div><small>Adresa</small><b>Ub, Brgule 14212, bb</b></div></div>
-        <div class="info card reveal right" style="--d:1"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></span><div><small>Telefon</small><b><a href="tel:+381615520700">+381 61 552 0700 - Veljko</a></b></div></div>
-        <div class="info card reveal right" style="--d:2"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span><div><small>E-pošta</small><b><a href="mailto:stolarijavex@gmail.com">stolarijavex@gmail.com</a></b></div></div>
-        <div class="info card reveal right" style="--d:3"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><div><small>Radno vreme</small><b>Pon–Sub 09–17h</b></div></div>
+        <div class="info card"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg></span><div><small>Adresa</small><b>Ub, Brgule 14212, bb</b></div></div>
+        <div class="info card"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></span><div><small>Telefon</small><b><a href="tel:+381615520700">+381 61 552 0700 - Veljko</a></b></div></div>
+        <div class="info card"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span><div><small>E-pošta</small><b><a href="mailto:stolarijavex@gmail.com">stolarijavex@gmail.com</a></b></div></div>
+        <div class="info card"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><div><small>Radno vreme</small><b>Pon–Sub 09–17h</b></div></div>
       </div>
     </div>
   </div>
