@@ -208,6 +208,8 @@ body.leaving{opacity:0;transition:opacity .35s ease}
 /* ---------- reveal ---------- */
 .reveal{opacity:0;transform:translateY(46px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
 .reveal.in{opacity:1;transform:none}
+.reveal.sheen-only{opacity:1;transform:none;transition:none}   /* sekcija Proizvodi: bez ikakve animacije pojavljivanja */
+.reveal.sheen-only.in .grad{animation:none}   /* ni sjaj naslova ne prelazi preko teksta (naslov je statičan aluminijum) */
 main{overflow-x:clip}
 
 /* ---------- cards ---------- */
@@ -250,7 +252,7 @@ a.pcard{--fw:clamp(1.5px,.075rem + .06vw,2.5px);--ri:calc(var(--radius) - var(--
 .pcard .pc-bg{display:block;width:100%;height:100%;object-fit:cover}
 /* uvučeni rub: tamna linija + senka na gornjoj ivici slike i svetla linija na donjoj ivici rama */
 .pcard::before{content:"";position:absolute;pointer-events:none;inset:var(--fw);border-radius:var(--ri);z-index:1;opacity:1;
-  background:linear-gradient(180deg,rgba(6,8,13,.5) 0%,rgba(6,8,13,.14) 30%,rgba(6,8,13,0) 48%),linear-gradient(135deg,rgba(56,189,248,.10),rgba(129,140,248,.12));
+  background:linear-gradient(180deg,rgba(6,8,13,.5) 0%,rgba(6,8,13,.14) 30%,rgba(6,8,13,0) 48%);
   box-shadow:inset 0 0 0 1px rgba(3,5,10,.75),inset 0 10px 18px -6px rgba(0,0,0,.55),0 0 0 1px rgba(3,5,10,.55),0 1px 0 1px rgba(255,255,255,.28);
   transition:none}
 .pcard::after{content:"";position:absolute;left:var(--fw);right:var(--fw);bottom:var(--fw);height:50%;z-index:0;pointer-events:none;border-radius:0 0 var(--ri) var(--ri);
@@ -259,7 +261,8 @@ a.pcard{--fw:clamp(1.5px,.075rem + .06vw,2.5px);--ri:calc(var(--radius) - var(--
 .pcard .card-body h3{margin:0;color:#fff;text-shadow:0 1px 12px rgba(3,5,10,.7)}
 /* „Saznaj više“: tekst + okruglo dugme sa strelicom u gradijentu sajta */
 .pcard .more{display:inline-flex;margin:0}
-.pcard .more svg{flex:none;width:2.25rem;height:2.25rem;padding:.6rem;border-radius:50%;color:#02111c;background:linear-gradient(120deg,var(--accent),var(--accent2));box-shadow:0 6px 18px rgba(56,189,248,.35);transition:none}
+.pcard .more svg{flex:none;width:2.25rem;height:2.25rem;padding:.6rem;border-radius:50%;color:#0b121d;background-color:#9aa4b5;background-image:linear-gradient(145deg,rgba(255,255,255,.55) 0%,rgba(255,255,255,0) 40%,rgba(6,8,13,.28) 100%),url('aluminum.jpg');background-size:100% 100%,760px 285px;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.85),inset 0 -1px 0 rgba(0,0,0,.45),0 0 0 1px rgba(3,5,10,.8),0 5px 12px -4px rgba(0,0,0,.7)}
 @media(hover:hover){a.pcard:hover .more svg{transform:none}}
 @media(hover:hover){a.pcard:hover{box-shadow:var(--pc-sh)}}  /* bez hover efekta: ponovi osnovnu senku (inače je menja opšte .card:hover) */
 
@@ -453,6 +456,8 @@ input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;bac
   .grid-4,.grid-3,.steps,.checks{grid-template-columns:1fr}
   /* kartice proizvoda: tekst centriran */
   .pcard .card-body{justify-content:center}
+  #proizvodi .grid-4{gap:clamp(1.5rem,1rem + 3vw,2rem)}
+  a.pcard{width:min(100%,17.5rem);margin-inline:auto}
   /* galerija = slajder: prevlačenje prstom + automatski */
   .g-grid{display:flex;gap:.9rem;grid-auto-rows:unset;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;scrollbar-width:none;
     margin-inline:calc(-1*var(--gutter));padding:.4rem 11vw .6rem;scroll-padding-inline:11vw}
