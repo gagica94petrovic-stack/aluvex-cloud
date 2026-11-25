@@ -128,10 +128,10 @@ body.leaving{opacity:0;transition:opacity .35s ease}
     radial-gradient(900px 700px at 10% 90%,rgba(129,140,248,.18),transparent 60%),
     linear-gradient(180deg,#070a12,#06080d)}
 /* hero pozadina: fotografija + overlay u bojama sajta (tamnije levo gde je tekst, svetlije desno gde se slika vidi) */
-.hero .hero-bg{background:url('hero-photo.jpg') 62% center/cover no-repeat,var(--bg)}
+.hero .hero-bg{background:url('hero-photo.jpg') 50% center/cover no-repeat,var(--bg)}
 @media(min-width:1441px){.hero .hero-bg{background-image:url('hero-photo-xl.jpg')}}
 .hero .hero-bg::after{content:"";position:absolute;inset:0;background:
-  linear-gradient(90deg,rgba(6,8,13,.94) 0%,rgba(6,8,13,.84) 30%,rgba(6,8,13,.50) 62%,rgba(6,8,13,.34) 100%),
+  linear-gradient(90deg,rgba(6,8,13,.90) 0%,rgba(6,8,13,.78) 24%,rgba(6,8,13,.46) 48%,rgba(6,8,13,.30) 68%,rgba(6,8,13,.46) 88%,rgba(6,8,13,.72) 100%),
   linear-gradient(180deg,rgba(6,8,13,.58) 0%,rgba(6,8,13,0) 22%,rgba(6,8,13,0) 68%,rgba(6,8,13,.97) 100%),
   radial-gradient(900px 640px at 82% 40%,rgba(56,189,248,.16),transparent 65%),
   radial-gradient(760px 520px at 8% 100%,rgba(129,140,248,.20),transparent 65%)}
@@ -436,6 +436,11 @@ input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;bac
   .copy{justify-content:center;text-align:center}
 }
 
+/* ---- tablet (601–1040px): 2 kartice u redu, manje i sa većim razmakom ---- */
+@media(min-width:601px) and (max-width:1040px){
+  #proizvodi .grid-4{grid-template-columns:repeat(2,minmax(0,17.5rem));justify-content:center;gap:clamp(1.75rem,1rem + 3vw,2.75rem)}
+}
+
 /* ---- burger meni (<=900px) ---- */
 @media(max-width:900px){
   .burger{display:block;z-index:120}
@@ -520,12 +525,16 @@ input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;bac
 
 /* ==========================================================
    MOBILNI / TABLET (<=1040px): hero fotografija je pozadina cele hero sekcije,
-   preko nje tamni overlay u bojama sajta za maksimalnu čitljivost teksta
+   preko nje tamni overlay u bojama sajta za maksimalnu čitljivost teksta.
+   Tablet (601–1040px): slika centrirana. Telefon (<=600px): slika pomerena udesno.
    ========================================================== */
 @media(max-width:1040px){
-  .hero .hero-bg{background:url('hero-photo.jpg') 96% 50%/auto 78% no-repeat,var(--bg)}
+  .hero .hero-bg{background:url('hero-photo.jpg') 50% 50%/cover no-repeat,var(--bg)}
   .hero .hero-bg::after{background:
     linear-gradient(180deg,rgba(6,8,13,1) 0%,rgba(6,8,13,1) 11%,rgba(6,8,13,.6) 30%,rgba(6,8,13,.64) 62%,rgba(6,8,13,.82) 80%,rgba(6,8,13,1) 90%,rgba(6,8,13,1) 100%),
     radial-gradient(120% 60% at 90% 0%,rgba(56,189,248,.22),transparent 60%),
     radial-gradient(120% 60% at 0% 100%,rgba(129,140,248,.24),transparent 60%)}
+}
+@media(max-width:600px){
+  .hero .hero-bg{background-size:auto 78%;background-position:96% 50%}
 }
