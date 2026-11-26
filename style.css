@@ -375,7 +375,11 @@ a.pcard{--fw:clamp(1.5px,.075rem + .06vw,2.5px);--ri:calc(var(--radius) - var(--
 .info .ic svg{width:24px;height:24px}
 .info div{position:relative;z-index:2;min-width:0}
 .info small{display:block;color:var(--muted);font-size:.8rem}
-.info b{font-weight:600;line-height:1.4}
+.info b{font-weight:600;line-height:1.4;overflow-wrap:anywhere}
+/* kartice koje su linkovi (Instagram, Facebook): a.card inače forsira display:block */
+a.info{display:flex}
+.info .go{position:relative;z-index:2;flex:none;margin-left:auto;width:1.25rem;height:1.25rem;color:var(--muted);transition:transform .3s var(--ease),color .3s}
+@media(hover:hover){a.info:hover .go{transform:translateX(4px);color:var(--accent)}}
 .call-card{padding:clamp(1.5rem,1rem + 2.4vw,2.75rem) clamp(1.25rem,.8rem + 2.2vw,2.5rem);display:flex;flex-direction:column;justify-content:center;background:radial-gradient(500px 300px at 10% 0%,rgba(56,189,248,.20),transparent 60%),radial-gradient(500px 300px at 100% 100%,rgba(129,140,248,.18),transparent 60%),var(--card)}
 .call-card>*{position:relative;z-index:2}
 .call-card h3{font-family:var(--display);font-size:clamp(1.35rem,1.1rem + 1vw,1.7rem);line-height:1.2;margin-bottom:.85rem}
@@ -383,13 +387,27 @@ a.pcard{--fw:clamp(1.5px,.075rem + .06vw,2.5px);--ri:calc(var(--radius) - var(--
 .call-list{display:grid;gap:.65rem;margin-bottom:1.9rem}
 .call-list li{display:flex;gap:.65rem;align-items:center;font-weight:500;font-size:.95rem;line-height:1.4}
 
+/* WhatsApp / Viber ispod dugmeta za poziv (isti broj) */
+.msgr{width:100%;margin-top:clamp(1.25rem,1rem + 1vw,1.6rem);padding-top:clamp(1.1rem,.9rem + .8vw,1.4rem);border-top:1px solid var(--line)}
+.msgr-label{display:block;color:var(--muted);font-size:.85rem;margin-bottom:.75rem}
+.msgr-row{display:flex;flex-wrap:wrap;gap:.75rem}
+.msg-btn{flex:1 1 8rem;display:inline-flex;align-items:center;justify-content:center;gap:.6rem;min-height:3rem;padding:.7rem .9rem;border-radius:14px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.04);font-weight:600;font-size:1rem;line-height:1.2;transition:transform .35s var(--ease),border-color .3s,background .3s,box-shadow .35s var(--ease)}
+.msg-btn svg{flex:none;width:1.45rem;height:1.45rem}
+.msg-btn.wa svg{color:#25d366}
+.msg-btn.vb svg{color:#9a89ff}
+@media(hover:hover){
+  .msg-btn:hover{transform:translateY(-3px)}
+  .msg-btn.wa:hover{border-color:rgba(37,211,102,.6);background:rgba(37,211,102,.09);box-shadow:0 14px 30px -12px rgba(37,211,102,.5)}
+  .msg-btn.vb:hover{border-color:rgba(154,137,255,.65);background:rgba(115,96,242,.12);box-shadow:0 14px 30px -12px rgba(115,96,242,.6)}
+}
+
 /* ---------- footer ---------- */
 footer{padding:clamp(3rem,2rem + 3vw,4.4rem) 0 1.75rem;border-top:1px solid var(--line)}
 .foot{display:grid;grid-template-columns:1.4fr 1fr;gap:clamp(1.75rem,1rem + 2vw,2.5rem)}
 .foot p{color:var(--muted);margin-top:.9rem;max-width:21rem;font-size:.95rem}
 .foot h4{font-family:var(--display);margin-bottom:.85rem}
 .foot li{margin-bottom:.15rem}
-.foot li a{display:inline-block;padding-block:.3rem;color:var(--muted);transition:color .3s}
+.foot li a,.foot li span{display:inline-block;padding-block:.3rem;color:var(--muted);transition:color .3s}
 .foot li a:hover{color:var(--accent)}
 .copy{margin-top:clamp(2rem,1.5rem + 2vw,3.1rem);padding-top:1.5rem;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.65rem;color:#6b7790;font-size:var(--fs-sm)}
 
@@ -463,6 +481,7 @@ input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;bac
   .bp{width:100%;max-width:36rem;margin-inline:auto}
   .call-card{text-align:center;align-items:center}
   .call-list{justify-items:start;width:fit-content;max-width:100%;margin-inline:auto}
+  .msgr{text-align:center;max-width:26rem}
   .info-list{grid-template-columns:repeat(auto-fit,minmax(min(100%,16rem),1fr))}
   .demo-text{text-align:center}
   .demo-text p{max-width:34rem;margin-inline:auto}
@@ -519,6 +538,7 @@ input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;bac
   .eyebrow{font-size:.8rem}
 
   .center-cta .btn,.cta-band .btn,.call-card .btn{width:100%;max-width:21rem}
+  .msgr{max-width:21rem}
   .steps{row-gap:2.25rem}
   .info{padding:1rem}
 
@@ -533,6 +553,8 @@ input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;bac
 @media(max-width:360px){
   :root{--gutter:1rem}
   .btn{padding-inline:1.25rem}
+  .msg-btn{flex-basis:100%}
+  .info{gap:.85rem}
 }
 
 /* ---- niski landscape ekrani (telefoni na boku) ---- */

@@ -148,7 +148,8 @@
   /* ---------- tranzicija između stranica ---------- */
   $$('a[href]').forEach(a => {
     const href = a.getAttribute('href');
-    if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') || a.target === '_blank') return;
+    // preskoči sidra, spoljne aplikacije (mailto, tel, viber...) i linkove koji se otvaraju u novom tabu
+    if (!href || href.startsWith('#') || /^(mailto|tel|sms|viber|whatsapp):/i.test(href) || a.target === '_blank') return;
     a.addEventListener('click', e => {
       if (e.metaKey || e.ctrlKey || e.shiftKey) return;
       const url = new URL(a.href, location.href);
