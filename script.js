@@ -166,24 +166,6 @@
   }), { threshold: .12, rootMargin: '0px 0px -40px 0px' });
   $$('.reveal').forEach(el => io.observe(el));
 
-  /* ---------- brojači (jedna petlja za sve brojeve) ---------- */
-  const counterBox = $('.counters');
-  if (counterBox) {
-    const nums = $$('[data-count]', counterBox).map(el => ({ el, end: +el.dataset.count, suf: el.dataset.suffix || '' }));
-    const countIO = new IntersectionObserver(es => {
-      if (!es[0].isIntersecting) return;
-      countIO.disconnect();
-      const t0 = performance.now(), dur = 1800;
-      const tick = t => {
-        const p = Math.min((t - t0) / dur, 1), v = 1 - Math.pow(1 - p, 3);
-        nums.forEach(n => { n.el.textContent = Math.round(n.end * v).toLocaleString('sr-RS') + n.suf; });
-        if (p < 1) requestAnimationFrame(tick);
-      };
-      requestAnimationFrame(tick);
-    }, { threshold: .4 });
-    countIO.observe(counterBox);
-  }
-
   // (efekti koji prate kursor — glow i spotlight — uklonjeni: bez ikakvih mouse efekata)
 
   /* ---------- galerija + lightbox ---------- */
