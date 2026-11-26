@@ -27,6 +27,50 @@
       <path d="M100 46h60l-60 104z" fill="url(#shine)"/><path d="M203 46h60l-60 104z" fill="url(#shine)"/>
       <rect x="196" y="44" width="8" height="212" fill="url(#alu)"/>
       <rect x="180" y="140" width="5" height="34" rx="2.5" fill="#eaf0f8"/><rect x="215" y="140" width="5" height="34" rx="2.5" fill="#eaf0f8"/></svg>`,
+    inslide: () => open + `
+      <rect x="24" y="40" width="352" height="220" rx="8" fill="url(#alu)"/>
+      <rect x="38" y="54" width="324" height="192" fill="#0b1424"/>
+      <rect x="42" y="58" width="150" height="184" fill="url(#glass)" stroke="url(#alu)" stroke-width="5"/><path d="M46 62h60l-60 90z" fill="url(#shine)"/>
+      <g><rect x="188" y="58" width="170" height="184" fill="url(#glass)" stroke="url(#alu)" stroke-width="5"/><path d="M192 62h70l-70 100z" fill="url(#shine)"/>
+        <rect x="198" y="130" width="6" height="52" rx="3" fill="#eaf0f8"/>
+        <animateTransform attributeName="transform" type="translate" values="0 0;-46 0;-46 0;0 0" keyTimes="0;.4;.7;1" dur="7s" repeatCount="indefinite"/></g></svg>`,
+    frameless: () => {
+      let s = open + '<rect x="20" y="50" width="360" height="10" rx="4" fill="url(#alu)"/><rect x="20" y="240" width="360" height="10" rx="4" fill="url(#alu)"/>';
+      for (let i = 0; i < 6; i++) { const x = 26 + i * 58; s += `<rect x="${x}" y="64" width="54" height="172" fill="url(#glass)" stroke="rgba(255,255,255,.35)" stroke-width="1"/><path d="M${x} 64h26l-26 60z" fill="url(#shine)"/>`; }
+      return s + '</svg>';
+    },
+    fold: () => {
+      let s = open + '';
+      for (let i = 0; i < 4; i++) {
+        const x = 40 + i * 80, pts = i % 2 ? `${x},44 ${x + 80},56 ${x + 80},244 ${x},256` : `${x},56 ${x + 80},44 ${x + 80},256 ${x},244`;
+        s += `<polygon points="${pts}" fill="url(#glass)" stroke="url(#alu)" stroke-width="5" stroke-linejoin="round"/><polygon points="${pts}" fill="url(#shine)" opacity=".5"/>`;
+      }
+      return s + '</svg>';
+    },
+    fixed: () => open + `
+      <rect x="70" y="26" width="260" height="248" rx="8" fill="url(#alu)"/>
+      <rect x="84" y="40" width="232" height="220" rx="3" fill="#0b1424"/>
+      <rect x="90" y="46" width="220" height="208" fill="url(#glass)"/>
+      <path d="M90 46h110L90 196z" fill="url(#shine)"/></svg>`,
+    balcony: () => open + `
+      <rect x="56" y="14" width="288" height="272" rx="8" fill="url(#alu)"/>
+      <rect x="68" y="26" width="264" height="248" rx="3" fill="#0b1424"/>
+      <rect x="74" y="32" width="164" height="236" fill="url(#glass)"/>
+      <path d="M74 32h72L74 170z" fill="url(#shine)"/>
+      <rect x="238" y="30" width="8" height="240" fill="url(#alu)"/>
+      <rect x="246" y="32" width="80" height="236" fill="url(#glass)"/>
+      <rect x="222" y="130" width="6" height="50" rx="3" fill="#eaf0f8"/></svg>`,
+    portal: () => open + `
+      <rect x="16" y="30" width="368" height="248" rx="6" fill="url(#alu)"/>
+      <rect x="28" y="42" width="344" height="224" fill="#0b1424"/>
+      <rect x="34" y="48" width="332" height="54" fill="url(#glass)"/>
+      <rect x="34" y="102" width="332" height="7" fill="url(#alu)"/>
+      <rect x="34" y="109" width="100" height="151" fill="url(#glass)"/>
+      <rect x="140" y="109" width="120" height="151" fill="url(#glass)"/>
+      <rect x="266" y="109" width="100" height="151" fill="url(#glass)"/>
+      <rect x="134" y="109" width="6" height="151" fill="url(#alu)"/><rect x="260" y="109" width="6" height="151" fill="url(#alu)"/>
+      <path d="M34 48h90L34 150z" fill="url(#shine)"/><path d="M266 109h60l-60 90z" fill="url(#shine)"/>
+      <rect x="244" y="164" width="5" height="40" rx="2.5" fill="#eaf0f8"/></svg>`,
     door: () => open + `
       <rect x="120" y="14" width="160" height="272" rx="8" fill="url(#alu)"/>
       <rect x="132" y="26" width="136" height="248" rx="3" fill="#0b1424"/>
@@ -289,9 +333,16 @@
   if (chips.length) {
     const cards = $$('.p-card');
     const grid = $('#productGrid');
+    const emptyNote = $('#catalogEmpty');
     const apply = f => {
       chips.forEach(c => c.classList.toggle('active', c.dataset.filter === f));
-      cards.forEach(c => c.classList.toggle('hide', !(f === 'svi' || c.dataset.cat === f)));
+      let shown = 0;
+      cards.forEach(c => {
+        const on = f === 'svi' || c.dataset.cat === f;
+        c.classList.toggle('hide', !on);
+        if (on) shown++;
+      });
+      if (emptyNote) emptyNote.hidden = shown > 0;   // kategorija bez kartica (npr. Klizni sistemi) prikazuje kratku poruku
       grid.classList.remove('pop'); void grid.offsetWidth; grid.classList.add('pop');   // jedna animacija za celu mrežu
     };
     chips.forEach(c => c.addEventListener('click', () => apply(c.dataset.filter)));
