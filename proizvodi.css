@@ -1,0 +1,25 @@
+/* ==========================================================
+   AluVex — proizvodi.css (samo za proizvodi.html)
+   Katalog: kartice sa fotografijom u kvadratnom kadru (ceo proizvod je vidljiv).
+   ========================================================== */
+
+/* mreža kataloga: kartice su manje i centrirane (i kad je poslednji red nepun) */
+#productGrid{display:flex;flex-wrap:wrap;justify-content:center;gap:var(--gap);max-width:64rem;margin-inline:auto}
+#productGrid>.p-card{flex:0 0 calc((100% - 2 * var(--gap)) / 3);min-width:0}
+
+.p-photo{position:relative;aspect-ratio:1/1;overflow:hidden;background:var(--bg2)}
+.p-photo img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+/* donja ivica slike se stapa u karticu */
+.p-photo::after{content:"";position:absolute;left:0;right:0;bottom:0;height:18%;background:linear-gradient(to top,var(--card),transparent);pointer-events:none}
+@media(hover:hover){.card:hover .p-photo img{transform:scale(1.04)}}
+
+/* tablet (do 1040px): 2 kartice u redu */
+@media(max-width:1040px){
+  #productGrid{max-width:44rem}
+  #productGrid>.p-card{flex-basis:calc((100% - var(--gap)) / 2)}
+}
+/* telefon (do 600px): jedna kartica u redu, uža, sa većim razmakom između kartica */
+@media(max-width:600px){
+  #productGrid{max-width:none;gap:clamp(1.5rem,1rem + 3vw,2rem)}
+  #productGrid>.p-card{flex-basis:min(100%,20rem)}
+}
